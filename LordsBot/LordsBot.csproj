@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{868DA464-F94B-467D-9DAD-96A7CE7B5B75}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LordsBot</RootNamespace>
+    <AssemblyName>LordsBot</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Emgu.CV.DebuggerVisualizers.VS2017">
+      <HintPath>A:\Emgu\emgucv-windesktop 3.3.0.2824\bin\Emgu.CV.DebuggerVisualizers.VS2017.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>A:\Emgu\emgucv-windesktop 3.3.0.2824\bin\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI.GL">
+      <HintPath>A:\Emgu\emgucv-windesktop 3.3.0.2824\bin\Emgu.CV.UI.GL.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World">
+      <HintPath>A:\Emgu\emgucv-windesktop 3.3.0.2824\bin\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph">
+      <HintPath>A:\Emgu\emgucv-windesktop 3.3.0.2824\bin\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BotNox.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcessing.cs" />
+    <Compile Include="MouseAction.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RECT.cs" />
+    <Compile Include="SendKeyPress.cs" />
+    <Compile Include="Window.cs" />
+    <Compile Include="Win32.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AppStart.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\isInGame.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shelter.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TopRightTurf.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shetler2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shetler3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shetler4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LaunchArmy.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shelter5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Recall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shield1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shield2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shield3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shield4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\use.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mysterybox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mysterybox2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mysterybox3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mysterybox4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shield.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guild1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guild2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mysterybox5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guildgift1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guildgiftDeleteAll.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guildgiftDelete.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guildgiftOpenAll.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guildgiftOpen.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoGuildGifts.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\healButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heal1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heal2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heal3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heal4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\healButtonRed.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InfirmaryExitSpecial.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InfirmaryExit1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InfirmaryExitNotEnoughResource.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI1Closed.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI1Opened.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI2Closed.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI2Opened.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\helpButtonAll.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\helpButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\requestHelp.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FreeButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Collect1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Collect2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Collect3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Collect4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Collect5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Collect6.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TurfQuestsTab.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TurfQuestsTab2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TurfQuestsTab1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdminQuest1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdminQuest2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdminQuest3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdminQuest4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GuildQuest1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GuildQuest4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GuildQuest2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GuildQuest3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QuestStart.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QuestStart2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AutoComplete1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AutoComplete2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AutoComplete4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AutoComplete3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AutoComplete6.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AutoComplete5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VIPQuest1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VIPQuest2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VIPQuest3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VIPQuest4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VipQuestClaim1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VipQuestClaim2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VipQuestChest1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VipQuestChest2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VipQuestChest3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VipQuestChest4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VipQuestChest5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VipQuestChest6.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Quest1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Quest2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LevelUp2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LevelUp1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExitSpecial2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WaitForNewQuest.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barracks_Idle.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barracks_T1Siege.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barracks_TrainButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpgradeBuilding1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpgradeBuildingButton1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_Idle1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_Idle2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_Idle3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_EcoTree.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_EcoTree_Construction.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_EcoTree_Wood.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_EcoTree_Food.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_EcoTree_Gathering.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_EcoTree_Ore.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_EcoTree_Stone.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_EcoTree_Vault.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_EcoTree_Weight.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_Button1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_Button2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_Button3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Food.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gather_Button.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gather_LowestTier.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gather_LowestTierFirst.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gather_OpenOptionTab.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gold_Forest.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gold_Magma.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gold_Snow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ore_Forest.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ore_Magma.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ore_Snow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stone_Forest.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stone_MagmaPath.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stone_Snow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wood_Forest.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wood_MagmaPath.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wood_Snow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Is_In_Turf.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Is_In_KingdomMap.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI_Map_Opened.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI_Map_Closed.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Return_To_Castle.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shelter_OneTroop.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shelter_OneTroopClear.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Auto_Assemble.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Quest_OnGoing.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Army_Limit.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExitSpecial3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gather_Button2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Army_Limit2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barracks_T1inf.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barracks_T1Archer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barracks_T1Cav.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Food.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Gold.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Ore.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Stone.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Wood.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Bookmark.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Bookmark_View.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Send_Resources.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Supply.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Supply_Red.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ATest.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Confirm.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SwitchAccount_Account.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SwitchAccount_Confirm.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SwitchAccount_Ok.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SwitchAccount_Settings.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SwitchAccount_SignInGoogle.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SwitchAccount_SwitchAccount.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SwitchAccount_Close.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xx.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LevelupExit.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LevelUp3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\helpButton2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_CavDef.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_CavHp.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_CavOff.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_InfDef.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_InfHp.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_InfOff.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_Intel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_Quick.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_RangeDef.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_RangeHp.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_RangeOff.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_SiegeDef.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_SiegeHp.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_SiegeOff.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_T2Cav.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_T2Inf.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_T2Range.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Research_MilitaryTree_T2Siege.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SwitchAccount_ErrorTest1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaintenanceLogIn.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckIfOwnCastle.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
