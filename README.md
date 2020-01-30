@@ -8,4 +8,4 @@ that allows you to run Android apps on your PC.
 
 The Bot has the functions and is able to be modified to automate literally any program on the Windows OS using a brute force method.
 
-...more info will be added in the future.
+...more info will be added later.
