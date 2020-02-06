@@ -1,10 +1,11 @@
 # LordsBot
 A Bot program for a game called Lords Mobile.
+Lords Mobile is a massive multiplayer real time strategy war game.
 
 NOTES:
 The current bot is made for a game called Lords Mobile, it is a Android app game.
 The bot requires the installation of NoxPlayer a Android operating system emulator, 
-that allows you to run Android apps on your PC.
+which will allow you to run Android apps on your PC.
 
 
 Extra Notes:
