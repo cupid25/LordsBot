@@ -1,5 +1,6 @@
 # LordsBot
 A Bot program for a game called Lords Mobile.
+
 Lords Mobile is a massive multiplayer real time strategy war game.
 
 NOTES:
