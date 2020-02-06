@@ -8,6 +8,9 @@ The current bot is made for a game called Lords Mobile, it is a Android app game
 The bot requires the installation of NoxPlayer a Android operating system emulator, 
 which will allow you to run Android apps on your PC.
 
+The bot automates all the repetitive and tedious tasks of the game.
+Has many features like auto defending against player attacks or auto gather resources and many more..
+
 
 Extra Notes:
 
