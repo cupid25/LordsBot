@@ -9,7 +9,7 @@ The bot requires the installation of NoxPlayer a Android operating system emulat
 which will allow you to run Android apps on your PC.
 
 The bot automates all the repetitive and tedious tasks of the game.
-Has many features like auto defending against player attacks or auto gather resources and many more..
+Has many features like auto defending against player attacks or auto gather resources and much more..
 
 
 Extra Notes:
