@@ -9,7 +9,7 @@ that allows you to run Android apps on your PC.
 
 Extra Notes:
 
-Had another version of the code with comments but ended up losing it somehow.
+Had another version of the code with comments but ended up losing that version a while back.
 Will be adding documentation and more comments when i got time.
 
 ...more info will be added later.
